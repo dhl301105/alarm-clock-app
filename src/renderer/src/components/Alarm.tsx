@@ -16,7 +16,7 @@ const Alarm: React.FC = () => {
     setCards((prevCards) => prevCards.filter((card) => card.id !== id))
   }
   return (
-    <div className="w-full h-full">
+    <div className="w-full min-h-full h-max">
       <ListCard cards={cards} handleDeleteCard={handleDeleteCard} />
       <AddButton
         handleClick={() => {

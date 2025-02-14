@@ -8,7 +8,7 @@ interface PageProps {
 
 const Page: React.FC<PageProps> = ({ page }) => {
   return (
-    <div className="w-full h-full bg-[rgba(12,12,12,0.5)]">
+    <div className="flex pl-60 w-full min-h-full h-max bg-[rgba(12,12,12,0.5)]">
       {page === 'alarm' && <Alarm />}
       {page === 'clock' && <Clock />}
     </div>

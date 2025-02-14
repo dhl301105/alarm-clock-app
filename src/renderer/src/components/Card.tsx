@@ -22,7 +22,7 @@ const Card: React.FC<CardProps> = ({ handleDeleteCard, title, id }) => {
         onClick={() => {
           handleDeleteCard(id)
         }}
-        className="text-1xl font-extrabold px-2 rounded-2xl hover:bg-[rgba(144,144,144,0.2)] absolute top-2 right-2 text-gray-400"
+        className="select-none text-1xl font-extrabold px-2 rounded-2xl hover:bg-[rgba(144,144,144,0.2)] absolute top-2 right-2 text-gray-400"
       >
         Delete
       </button>

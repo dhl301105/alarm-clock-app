@@ -12,7 +12,7 @@ const Clock: React.FC = () => {
   }, [])
 
   return (
-    <div className="flex justify-center items-center h-full">
+    <div className="flex justify-center items-center min-h-full w-full">
       <div className="text-5xl text-gray-400">{time.toLocaleTimeString()}</div>
     </div>
   )

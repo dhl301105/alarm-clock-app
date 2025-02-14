@@ -6,7 +6,7 @@ function App(): JSX.Element {
   const [page, setPage] = useState('clock')
 
   return (
-    <div className="flex w-full h-full">
+    <div className="flex w-full min-h-full h-max">
       <Navbar
         page={page}
         onClickButton={(name) => {

@@ -8,7 +8,7 @@ interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = ({ page, onClickButton }) => {
   return (
-    <div className="flex flex-col h-full py-5 min-w-60 bg-[rgba(24,24,24,0.5)]">
+    <div className="flex flex-col fixed top-0 left-0 h-full py-5 min-w-60 bg-[rgba(24,24,24,0.5)]">
       <NavButton
         name="clock"
         page={page}
