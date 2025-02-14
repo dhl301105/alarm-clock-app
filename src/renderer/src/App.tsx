@@ -3,11 +3,12 @@ import Page from './components/Page'
 import Navbar from './components/Navbar'
 
 function App(): JSX.Element {
-  const [page, setPage] = useState('hello')
+  const [page, setPage] = useState('clock')
 
   return (
     <div className="flex w-full h-full">
       <Navbar
+        page={page}
         onClickButton={(name) => {
           setPage(name)
         }}

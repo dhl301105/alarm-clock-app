@@ -1,7 +1,10 @@
+import Card from "./Card"
+
 const Alarm: React.FC = () => {
   return (
-    <div>
-      <h1 className="text-white">Alarm</h1>
+    <div className="flex flex-wrap p-5 gap-5">
+      <Card title="Good Morning"/>
+      <Card title="Alarm"/>
     </div>
   )
 }

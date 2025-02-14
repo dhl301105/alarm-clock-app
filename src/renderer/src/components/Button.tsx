@@ -3,12 +3,16 @@ import React from 'react'
 interface ButtonProps {
   onClickButton: () => void
   content: string
+  page: string
+  name: string
 }
 
-const Button: React.FC<ButtonProps> = ({ onClickButton, content }) => {
+const Button: React.FC<ButtonProps> = ({ onClickButton, name, content, page }) => {
   return (
     <button
-      className="w-50 h-20 mx-auto rounded-2xl hover:bg-[rgba(144,144,144,0.2)] text-gray-400"
+      className={`${
+        page === name ? 'bg-[rgba(144,144,144,0.1)]' : ''
+      } select-none w-50 h-20 mx-auto mb-5 rounded-2xl hover:bg-[rgba(144,144,144,0.2)] text-gray-400`}
       onClick={() => {
         onClickButton()
       }}
