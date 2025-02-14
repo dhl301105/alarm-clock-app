@@ -3,6 +3,7 @@
   "references": [{ "path": "./tsconfig.node.json" }, { "path": "./tsconfig.web.json" }],
   "compilerOptions": {
     "moduleResolution": "node16",
+    "module": "Node16",
     // other options
   }
 }

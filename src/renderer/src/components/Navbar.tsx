@@ -1,5 +1,5 @@
 import React from 'react'
-import Button from './Button'
+import NavButton from './NavButton'
 
 interface NavbarProps {
   onClickButton: (type: string) => void
@@ -9,22 +9,22 @@ interface NavbarProps {
 const Navbar: React.FC<NavbarProps> = ({ page, onClickButton }) => {
   return (
     <div className="flex flex-col h-full py-5 min-w-60 bg-[rgba(24,24,24,0.5)]">
-      <Button
+      <NavButton
         name="clock"
         page={page}
         content="Clock"
         onClickButton={() => {
           onClickButton('clock')
         }}
-      ></Button>
-      <Button
+      ></NavButton>
+      <NavButton
         name="alarm"
         page={page}
         content="Alarm"
         onClickButton={() => {
           onClickButton('alarm')
         }}
-      ></Button>
+      ></NavButton>
     </div>
   )
 }

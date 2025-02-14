@@ -7,7 +7,7 @@ interface ButtonProps {
   name: string
 }
 
-const Button: React.FC<ButtonProps> = ({ onClickButton, name, content, page }) => {
+const NavButton: React.FC<ButtonProps> = ({ onClickButton, name, content, page }) => {
   return (
     <button
       className={`${
@@ -22,4 +22,4 @@ const Button: React.FC<ButtonProps> = ({ onClickButton, name, content, page }) =
   )
 }
 
-export default Button
+export default NavButton
