@@ -6,9 +6,21 @@ interface CardProps {
   title: string
   handleDeleteCard: (id: number) => void
   id: number
+  hour: number
+  minute: number
+  handleUpdateHour: (id: number, hour: number) => void
+  handleUpdateMinute: (id: number, minute: number) => void
 }
 
-const Card: React.FC<CardProps> = ({ handleDeleteCard, title, id }) => {
+const Card: React.FC<CardProps> = ({
+  handleUpdateHour,
+  handleUpdateMinute,
+  hour,
+  minute,
+  handleDeleteCard,
+  title,
+  id
+}) => {
   const [days, setDays] = React.useState([false, false, false, false, false, false, false])
   const [titleInput, setTitleInput] = React.useState(title)
   const handleSetDays = (index: number): void => {
@@ -27,9 +39,9 @@ const Card: React.FC<CardProps> = ({ handleDeleteCard, title, id }) => {
         Delete
       </button>
       <div className="flex items-center">
-        <NumberInput />
+        <NumberInput name="hour" value={hour} id={id} handleChange={handleUpdateHour} />
         <span className="select-none text-white text-3xl">:</span>
-        <NumberInput />
+        <NumberInput name="minute" value={minute} id={id} handleChange={handleUpdateMinute} />
       </div>
       <input
         className="text-white text-3xl py-5 focus:outline-none"
