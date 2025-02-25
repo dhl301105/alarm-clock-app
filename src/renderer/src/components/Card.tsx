@@ -6,10 +6,10 @@ interface CardProps {
   title: string
   handleDeleteCard: (id: number) => void
   id: number
-  hour: number
-  minute: number
-  handleUpdateHour: (id: number, hour: number) => void
-  handleUpdateMinute: (id: number, minute: number) => void
+  hour: string
+  minute: string
+  handleUpdateHour: (id: number, hour: string) => void
+  handleUpdateMinute: (id: number, minute: string) => void
   handleSetDays: (id: number, indexDays: number) => void
   days: boolean[]
 }

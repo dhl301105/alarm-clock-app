@@ -5,13 +5,13 @@ interface ListCardProps {
   cards: {
     id: number
     title: string
-    hour: number
-    minute: number
+    hour: string
+    minute: string
     days: boolean[]
   }[]
   handleDeleteCard: (id: number) => void
-  handleUpdateHour: (id: number, hour: number) => void
-  handleUpdateMinute: (id: number, minute: number) => void
+  handleUpdateHour: (id: number, hour: string) => void
+  handleUpdateMinute: (id: number, minute: string) => void
   handleSetDays: (id: number, indexDays: number) => void
 }
 
@@ -25,7 +25,12 @@ const ListCard: React.FC<ListCardProps> = ({
   return (
     <div className="flex flex-wrap p-5 gap-5">
       {cards
-        .sort((a, b) => a.hour * 60 + a.minute - (b.hour * 60 + b.minute))
+        .sort(
+          (a, b) =>
+            parseInt(a.hour) * 60 +
+            parseInt(a.minute) -
+            (parseInt(b.hour) * 60 + parseInt(b.minute))
+        )
         .map((card) => (
           <Card
             handleUpdateHour={handleUpdateHour}
