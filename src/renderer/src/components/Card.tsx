@@ -1,6 +1,6 @@
 import React from 'react'
 import NumberInput from './NumberInput'
-import Day from './Day'
+import DayButton from './DayButton'
 
 interface CardProps {
   title: string
@@ -10,6 +10,8 @@ interface CardProps {
   minute: number
   handleUpdateHour: (id: number, hour: number) => void
   handleUpdateMinute: (id: number, minute: number) => void
+  handleSetDays: (id: number, indexDays: number) => void
+  days: boolean[]
 }
 
 const Card: React.FC<CardProps> = ({
@@ -19,15 +21,12 @@ const Card: React.FC<CardProps> = ({
   minute,
   handleDeleteCard,
   title,
-  id
+  id,
+  handleSetDays,
+  days
 }) => {
-  const [days, setDays] = React.useState([false, false, false, false, false, false, false])
   const [titleInput, setTitleInput] = React.useState(title)
-  const handleSetDays = (index: number): void => {
-    const newDays = [...days]
-    newDays[index] = !newDays[index]
-    setDays(newDays)
-  }
+
   return (
     <div className="relative w-100 h-60 bg-[rgba(144,144,144,0.1)] p-5 rounded-lg">
       <button
@@ -51,61 +50,68 @@ const Card: React.FC<CardProps> = ({
         value={titleInput}
       />
       <div className="flex">
-        <Day
-          days={days}
-          indexDays={0}
-          handleClick={() => {
-            handleSetDays(0)
-          }}
-          name="Su"
-        />
-        <Day
+        <DayButton
+          id={id}
           days={days}
           indexDays={1}
           handleClick={() => {
-            handleSetDays(1)
+            handleSetDays(id, 1)
           }}
           name="Mo"
         />
-        <Day
+        <DayButton
+          id={id}
           days={days}
           indexDays={2}
           handleClick={() => {
-            handleSetDays(2)
+            handleSetDays(id, 2)
           }}
           name="Tu"
         />
-        <Day
+        <DayButton
+          id={id}
           days={days}
           indexDays={3}
           handleClick={() => {
-            handleSetDays(3)
+            handleSetDays(id, 3)
           }}
           name="We"
         />
-        <Day
+        <DayButton
+          id={id}
           days={days}
           indexDays={4}
           handleClick={() => {
-            handleSetDays(4)
+            handleSetDays(id, 4)
           }}
           name="Th"
         />
-        <Day
+        <DayButton
+          id={id}
           days={days}
           indexDays={5}
           handleClick={() => {
-            handleSetDays(5)
+            handleSetDays(id, 5)
           }}
           name="Fri"
         />
-        <Day
+        <DayButton
+          id={id}
           days={days}
           indexDays={6}
           handleClick={() => {
-            handleSetDays(6)
+            handleSetDays(id, 6)
           }}
           name="Sa"
+        />
+        <DayButton
+          id={id}
+          days={days}
+          indexDays={0}
+          handleClick={() => {
+            handleSetDays(id, 0)
+          }}
+          name="Su"
         />
       </div>
     </div>
