@@ -9,6 +9,7 @@ html, body, #root {
   height: 100%;
 }
 
+
 /* body {
   display: flex;
   align-items: center;
@@ -178,3 +179,6 @@ code {
     display: none;
   }
 }
+
+
+@plugin 'tailwind-scrollbar';

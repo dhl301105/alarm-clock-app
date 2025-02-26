@@ -14,7 +14,7 @@ function App(): JSX.Element {
         }}
       ></Navbar>
 
-      <Page page={page} />
+      <Page page={page}/>
     </div>
   )
 }

@@ -9,12 +9,15 @@ function createWindow(): void {
     width: 1200,
     height: 670,
     show: false,
-    transparent: true,  // Làm cửa sổ trong suốt
+    frame: true,
+    transparent: false, // Làm cửa sổ trong suốt
     autoHideMenuBar: true,
     ...(process.platform === 'linux' ? { icon } : {}),
     webPreferences: {
       preload: join(__dirname, '../preload/index.js'),
-      sandbox: false
+      sandbox: false,
+      nodeIntegration: true,
+      contextIsolation: false,
     }
   })
 
