@@ -22,7 +22,7 @@ const NumberInput: React.FC<NumberInputProps> = ({ name, id, value, handleChange
         handleChange(id, num.toString())
       }}
       placeholder="00"
-      className="select-none text-white focus:outline-none text-6xl max-w-20 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+      className="select-none hover:bg-[rgba(144,144,144,0.2)] rounded-[5px] text-white focus:outline-none text-6xl max-w-18 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
     />
   )
 }

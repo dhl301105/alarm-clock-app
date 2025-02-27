@@ -5,6 +5,7 @@ import NumberInputCardEdit from './NumberInputCardEdit'
 import Colon from './Colon'
 import TitleInput from './TitleInput'
 import DayButton from './DayButton'
+import NumberInput from './NumberInput'
 
 interface CardEditProps {
   handleDeleteCard?: (id: number) => void
@@ -16,18 +17,26 @@ interface CardEditProps {
     minute: string
     days: boolean[]
     toggle: boolean
+    isRinged: boolean
   }
-  handleUpdateHour: (id: number, hour: string) => void
-  handleUpdateMinute: (id: number, minute: string) => void
-  handleSetCard: (id: number, updatedCard: Partial<typeof card>) => void
+  handleSetCard: (
+    id: number,
+    updatedCard: {
+      id: number
+      title: string
+      hour: string
+      minute: string
+      days: boolean[]
+      toggle: boolean
+      isRinged: boolean
+    }
+  ) => void
 }
 
 const CardEditCard: React.FC<CardEditProps> = ({
   setCardEdit,
   card,
   handleDeleteCard,
-  handleUpdateHour,
-  handleUpdateMinute,
   handleSetCard
 }) => {
   const [newCard, setNewCard] = React.useState({ ...card })
@@ -106,27 +115,27 @@ const CardEditCard: React.FC<CardEditProps> = ({
         <div className="text-gray-400 text-2xl">Edit alarm</div>
 
         <div className="flex items-center w-min mx-auto mt-5">
-          <NumberInputCardEdit
+          <NumberInput
             name="hour"
             value={newCard.hour}
-            id={0}
+            id={card.id}
             handleChange={handleUpdateNewHour}
           />
           <Colon />
-          <NumberInputCardEdit
-            name="Minute"
+          <NumberInput
+            name="minute"
             value={newCard.minute}
             id={card.id}
             handleChange={handleUpdateNewMinute}
           />
         </div>
 
-        <div className="flex justify-center mt-5 px-10">
+        <div className="flex mt-5 ml-5">
           {/* <FontAwesomeIcon className="m-auto text-white text-2xl" icon={faPenToSquare} /> */}
           <TitleInput handleTitle={handleTitle} titleInput={newCard.title} id={0} />
         </div>
 
-        <div className="flex">
+        <div className="flex justify-center">
           <DayButton
             id={0}
             days={newCard.days}
@@ -192,25 +201,23 @@ const CardEditCard: React.FC<CardEditProps> = ({
           />
         </div>
 
-        <div className="absolute flex justify-center w-70 mb-5 bottom-0">
-          <button
-            onClick={() => {
-              handleSetCard(card.id, newCard)
-              setCardEdit(false)
-            }}
-            className="mr-5 hover:bg-[rgba(144,144,144,0.2)] bg-[rgba(144,144,144,0.1)] text-white px-5 py-2 rounded-[5px] hover:bg-[rgba(144,144,144,0.2)]"
-          >
-            Save
-          </button>
-          <button
-            onClick={() => {
-              setCardEdit(false)
-            }}
-            className=" hover:bg-[rgba(144,144,144,0.2)] bg-[rgba(144,144,144,0.1)] text-white px-5 py-2 rounded-[5px] hover:bg-[rgba(144,144,144,0.2)]"
-          >
-            Cancel
-          </button>
-        </div>
+        <button
+          onClick={() => {
+            handleSetCard(card.id, newCard)
+            setCardEdit(false)
+          }}
+          className="absolute bottom-5 left-10 hover:bg-[rgba(144,144,144,0.2)] bg-[rgba(144,144,144,0.1)] text-white px-10 py-4 rounded-[5px] hover:bg-[rgba(144,144,144,0.2)]"
+        >
+          Save
+        </button>
+        <button
+          onClick={() => {
+            setCardEdit(false)
+          }}
+          className="absolute bottom-5 right-10 hover:bg-[rgba(144,144,144,0.2)] bg-[rgba(144,144,144,0.1)] text-white px-10 py-4 rounded-[5px] hover:bg-[rgba(144,144,144,0.2)]"
+        >
+          Cancel
+        </button>
       </div>
     </div>
   )

@@ -20,9 +20,21 @@ interface CardProps {
     minute: string
     days: boolean[]
     toggle: boolean
+    isRinged: boolean
   }
   handleTitle: (id: number, title: string) => void
-  handleSetCard: (id: number) => void
+  handleSetCard: (
+    id: number,
+    updatedCard: {
+      id: number
+      title: string
+      hour: string
+      minute: string
+      days: boolean[]
+      toggle: boolean
+      isRinged: boolean
+    }
+  ) => void
 }
 
 const Card: React.FC<CardProps> = ({
@@ -52,8 +64,6 @@ const Card: React.FC<CardProps> = ({
           setCardEdit={setCardEdit}
           card={card}
           handleDeleteCard={handleDeleteCard}
-          handleUpdateHour={handleUpdateHour}
-          handleUpdateMinute={handleUpdateMinute}
           handleSetCard={handleSetCard}
         />
       )}
@@ -69,7 +79,7 @@ const Card: React.FC<CardProps> = ({
       <label className="inline-flex items-center cursor-pointer">
         <input
           type="checkbox"
-          value={card.toggle.toString()}
+          checked={card.toggle}
           className="sr-only peer"
           onChange={(e) => {
             if (e.target.checked) {

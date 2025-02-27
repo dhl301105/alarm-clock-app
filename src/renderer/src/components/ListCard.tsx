@@ -9,6 +9,7 @@ interface ListCardProps {
     minute: string
     days: boolean[]
     toggle: boolean
+    isRinged: boolean
   }[]
   handleDeleteCard: (id: number) => void
   handleUpdateHour: (id: number, hour: string) => void
@@ -16,7 +17,18 @@ interface ListCardProps {
   handleSetDays: (id: number, indexDays: number) => void
   handleToggle: (id: number) => void
   handleTitle: (id: number, title: string) => void
-  handleSetCard: (id: number) => void
+  handleSetCard: (
+    id: number,
+    updatedCard: {
+      id: number
+      title: string
+      hour: string
+      minute: string
+      days: boolean[]
+      toggle: boolean
+      isRinged: boolean
+    }
+  ) => void
 }
 
 const ListCard: React.FC<ListCardProps> = ({

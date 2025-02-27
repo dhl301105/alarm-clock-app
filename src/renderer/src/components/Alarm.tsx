@@ -10,8 +10,8 @@ const Alarm: React.FC = () => {
       hour: '0',
       minute: '0',
       days: [false, false, false, false, false, false, false],
-      isRinged: false,
-      toggle: false
+      toggle: false,
+      isRinged: false
     },
     {
       id: 2,
@@ -38,26 +38,17 @@ const Alarm: React.FC = () => {
       })
     })
   }
-  const handleAddButton = (): void => {
-    const newId = ((): number => {
-      for (let i = 1; i <= cards.length + 1; i++) {
-        if (!cards.some((card) => card.id === i)) {
-          return i
-        }
+  const handleNewId = (): number => {
+    for (let i = 1; i <= cards.length + 1; i++) {
+      if (!cards.some((card) => card.id === i)) {
+        return i
       }
-      return cards.length + 1
-    })()
-    const newCards = [...cards]
-    newCards.push({
-      id: newId,
-      title: `Alarm ${newId}`,
-      hour: '0',
-      minute: '0',
-      days: [false, false, false, false, false, false, false],
-      isRinged: false,
-      toggle: true
-    })
-    setCards(newCards)
+    }
+    return cards.length + 1
+  }
+  const handleAdd = (newCard): void => {
+    // console.log(newCard)
+    setCards((prevCards) => [...prevCards, { ...newCard }])
   }
 
   const handleToggle = (id: number): void => {
@@ -97,6 +88,7 @@ const Alarm: React.FC = () => {
             parseInt(card.hour) === time.getHours() &&
             parseInt(card.minute) === time.getMinutes() &&
             card.days[time.getDay()] &&
+            card.toggle &&
             !card.isRinged
           ) {
             console.log(`Alarm ${card.id} is ringing`)
@@ -128,9 +120,8 @@ const Alarm: React.FC = () => {
         handleSetDays={handleSetDays}
       />
       <AddButton
-        handleClick={() => {
-          handleAddButton()
-        }}
+        handleNewId={handleNewId}
+        handleAdd={handleAdd}
       />
     </div>
   )
