@@ -6,8 +6,9 @@ import Colon from './Colon'
 import TitleInput from './TitleInput'
 import DayButton from './DayButton'
 import NumberInput from './NumberInput'
+import Button from './Button'
 
-interface CardEditProps {
+interface EditCardProps {
   handleDeleteCard?: (id: number) => void
   setCardEdit: (cardEdit: boolean) => void
   card: {
@@ -33,7 +34,7 @@ interface CardEditProps {
   ) => void
 }
 
-const CardEditCard: React.FC<CardEditProps> = ({
+const EditCard: React.FC<EditCardProps> = ({
   setCardEdit,
   card,
   handleDeleteCard,
@@ -201,26 +202,26 @@ const CardEditCard: React.FC<CardEditProps> = ({
           />
         </div>
 
-        <button
-          onClick={() => {
+        <Button
+          handleClick={() => {
             handleSetCard(card.id, newCard)
             setCardEdit(false)
           }}
           className="absolute bottom-5 left-10 hover:bg-[rgba(144,144,144,0.2)] bg-[rgba(144,144,144,0.1)] text-white px-10 py-4 rounded-[5px] hover:bg-[rgba(144,144,144,0.2)]"
         >
           Save
-        </button>
-        <button
-          onClick={() => {
+        </Button>
+        <Button
+          handleClick={() => {
             setCardEdit(false)
           }}
           className="absolute bottom-5 right-10 hover:bg-[rgba(144,144,144,0.2)] bg-[rgba(144,144,144,0.1)] text-white px-10 py-4 rounded-[5px] hover:bg-[rgba(144,144,144,0.2)]"
         >
           Cancel
-        </button>
+        </Button>
       </div>
     </div>
   )
 }
 
-export default CardEditCard
+export default EditCard

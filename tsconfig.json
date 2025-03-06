@@ -5,5 +5,9 @@
     "moduleResolution": "node16",
     "module": "Node16",
     // other options
-  }
+
+    "noUnusedLocals": false,
+    "noUnusedParameters": false
+  },
+  
 }

@@ -25,6 +25,22 @@ const Navbar: React.FC<NavbarProps> = ({ page, onClickButton }) => {
           onClickButton('alarm')
         }}
       ></NavButton>
+      <NavButton
+        name="timer"
+        page={page}
+        content="Timer"
+        onClickButton={() => {
+          onClickButton('timer')
+        }}
+      ></NavButton>
+      <NavButton
+        name="stopwatch"
+        page={page}
+        content="Stopwatch"
+        onClickButton={() => {
+          onClickButton('stopwatch')
+        }}
+      ></NavButton>
     </div>
   )
 }

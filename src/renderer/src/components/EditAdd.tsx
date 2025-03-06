@@ -3,6 +3,7 @@ import NumberInput from './NumberInput'
 import Colon from './Colon'
 import TitleInput from './TitleInput'
 import DayButton from './DayButton'
+import Button from './Button'
 
 interface CardEditAddProps {
   setCardEdit: (value: boolean) => void
@@ -180,24 +181,24 @@ const CardEditAdd: React.FC<CardEditAddProps> = ({ handleNewId, setCardEdit, han
           />
         </div>
 
-        <button
-          onClick={() => {
-            console.log(cardDefault)
+
+        <Button
+          handleClick={() => {
             handleAdd(cardDefault)
             setCardEdit(false)
           }}
           className="absolute bottom-5 left-10 hover:bg-[rgba(144,144,144,0.2)] bg-[rgba(144,144,144,0.1)] text-white px-10 py-4 rounded-[5px] hover:bg-[rgba(144,144,144,0.2)]"
         >
           Save
-        </button>
-        <button
-          onClick={() => {
+        </Button>
+        <Button
+          handleClick={() => {
             setCardEdit(false)
           }}
           className="absolute bottom-5 right-10 hover:bg-[rgba(144,144,144,0.2)] bg-[rgba(144,144,144,0.1)] text-white px-10 py-4 rounded-[5px] hover:bg-[rgba(144,144,144,0.2)]"
         >
           Cancel
-        </button>
+        </Button>
       </div>
     </div>
   )

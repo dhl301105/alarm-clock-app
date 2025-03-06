@@ -17,7 +17,7 @@ const NumberInput: React.FC<NumberInputProps> = ({ name, id, value, handleChange
         if (!/^\d*$/.test(inputValue)) return
         let num = parseInt(inputValue, 10) | 0
         if (name === 'hour' && num > 24) return
-        else if (name === 'minute' && num > 60) return
+        else if ((name === 'minute' || name === 'second') && num > 60) return
         if (num > 9) num = parseInt(num.toString().replace(/^0+/, ''), 10)
         handleChange(id, num.toString())
       }}

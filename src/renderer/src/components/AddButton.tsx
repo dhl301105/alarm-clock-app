@@ -1,6 +1,6 @@
 import React from 'react'
-import CardEditAdd from './CardEditAdd'
-import CardEditCard from './CardEditCard'
+import CardEditAdd from './EditAdd'
+import EditCard from './EditCard'
 
 interface AddButtonProps {
   handleAdd: (newCard?: Partial<(typeof cards)[0]>) => void

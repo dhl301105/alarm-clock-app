@@ -119,10 +119,7 @@ const Alarm: React.FC = () => {
         handleDeleteCard={handleDeleteCard}
         handleSetDays={handleSetDays}
       />
-      <AddButton
-        handleNewId={handleNewId}
-        handleAdd={handleAdd}
-      />
+      <AddButton handleNewId={handleNewId} handleAdd={handleAdd} />
     </div>
   )
 }
